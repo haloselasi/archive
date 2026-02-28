@@ -4,7 +4,7 @@ Terminal executable to create csv files with 4 rows.
 
 Desktop\CL.csv as Database. 
 
-Manually close.
+Manually close(make sure to save before).
 
 ---
 
