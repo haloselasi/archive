@@ -15,13 +15,19 @@ vector<Lists> TableData;
 void load();void entry();void save();
 
 string path=getenv("USERPROFILE"); 
-string directory=path + "\\Desktop\\CL.csv";
-fstream Database;//create and read Database
+string directory;
+ofstream Database;//create and read Database
 
 int main(){   
     cout<<path;
     cout<<"\n\n!Tribune!\n\n";//Sounds nice. "trYYYBeeeeUUUUUUNNNe"
-    fstream Database(directory);//create and read Database
+    //cin.ignore();
+    string file_name;
+    cout<<"Enter file name: ";getline(cin, file_name);
+    directory=path + "\\Desktop\\" + file_name + ".csv";//saves file path with preferred file name
+    cout<<directory<<endl<<endl;//print directory
+    //fstream Database(directory);//create and read Database
+    Database.open(directory);
     while(true){
         //select choice
         int choice;
@@ -47,10 +53,11 @@ int main(){
         //cin.ignore();
         //Loads Database. If it is'nt Present, it creates new one
         if(!Database.is_open()){
-            ofstream Database(directory);//Create Database
-            cout<<"\nNo Database present. Creating new Database!\n";
+            ofstream Database;//Create Database
+            Database.open(directory);
+            cout<<"\nNo Database present. Creating new Database!\n"<<endl<<"[Enter to continue]";
         }
-        cin.ignore();
+        //cin.ignore();
     }
     
     return 0;
@@ -72,8 +79,9 @@ void entry(){
     cout<<"ID: "<<ID<<endl;
 }
 void save(){
+    ofstream Database(directory);
     for(const auto &row : TableData){
-        Database<<left<<","<<row.l1<<","<<row.l2<<","<<row.l3<<","<<row.l4<<endl;
+        Database<<left<<row.l1<<","<<row.l2<<","<<row.l3<<","<<row.l4<<endl;
     }
-    Database.close();
+    //Database.close();
 }
