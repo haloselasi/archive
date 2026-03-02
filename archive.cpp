@@ -31,7 +31,7 @@ int main(){
     while(true){
         //select choice
         int choice;
-        cout<<left<<setw(10)<<"[1] New Entry"<<setw(10)<<"[2] Save"<<setw(10)<<"[0] Exit"<<endl;
+        cout<<left<<"\t\t[1] New Entry\t\t[2] Save\t\t[0] Exit"<<endl;
         cout<<"Choice[Save before you close]: ";
         cin>>choice;
         if(!cin.fail()){
@@ -77,7 +77,7 @@ void entry(){
     cout<<"l4: ";getline(cin, entry.l4);
     TableData.push_back(entry);
     int ID=TableData.size()-1;
-    cout<<entry.l1<<"\t\t"<<entry.l2<<"\t\t"<<entry.l3<<"\t\t"<<entry.l4<<endl;
+    cout<<endl<<entry.l1<<"\t\t"<<entry.l2<<"\t\t"<<entry.l3<<"\t\t"<<entry.l4<<endl;
     cout<<"ID: "<<ID<<endl<<endl;
 }
 void save(){
